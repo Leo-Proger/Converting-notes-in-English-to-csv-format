@@ -11,9 +11,9 @@ import static com.github.Leo_Proger.Main.MAIN_PATTERN;
 public class DataExtractor {
 
     public static VocabularyEntry extractData(String string) {
-        String englishWord = "";
-        String transcription = "";
-        String translate = "";
+        String englishWord;
+        String transcription;
+        String translate;
         List<String> examples = new ArrayList<>();
         List<String> exampleTranslates = new ArrayList<>();
 
