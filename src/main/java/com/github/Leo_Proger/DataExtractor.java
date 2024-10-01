@@ -39,10 +39,10 @@ public class DataExtractor {
 
                 while (exampleMatcher.find()) {
                     examples.add(
-                            stripChar(exampleMatcher.group(1), '.')
+                            stripChar(exampleMatcher.group(1).strip(), '.')
                     );
                     exampleTranslates.add(
-                            stripChar(exampleMatcher.group(2), '.')
+                            stripChar(exampleMatcher.group(2).strip(), '.')
                     );
                 }
             }

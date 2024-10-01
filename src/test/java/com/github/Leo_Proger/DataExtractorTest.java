@@ -66,4 +66,21 @@ class DataExtractorTest {
         assertEquals(1, result.exampleTranslates().size());
         assertEquals("Ты можешь рассчитывать на меня", result.exampleTranslates().getFirst());
     }
+
+    @Test
+    void testExtractDataWithoutTranscriptionAndManyExamples() {
+        String input = "- could - 1) прошедшая форма can 2) мог бы. _I think he could help us._ Я думаю он мог бы помочь нам. _Could you help me?_ Не могли бы вы помочь мне?";
+
+        VocabularyEntry result = DataExtractor.extractData(input);
+
+        assertEquals("could", result.englishWord());
+        assertEquals("", result.transcription());
+        assertEquals("1) прошедшая форма can 2) мог бы", result.translation());
+        assertEquals(2, result.examples().size());
+        assertEquals("I think he could help us", result.examples().getFirst());
+        assertEquals(2, result.exampleTranslates().size());
+        assertEquals("Я думаю он мог бы помочь нам", result.exampleTranslates().getFirst());
+        assertEquals("Could you help me?", result.examples().get(1));
+        assertEquals("Не могли бы вы помочь мне?", result.exampleTranslates().get(1));
+    }
 }
