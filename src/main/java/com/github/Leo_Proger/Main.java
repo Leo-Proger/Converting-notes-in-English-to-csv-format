@@ -3,6 +3,7 @@ package com.github.Leo_Proger;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Main {
     //                                                                                                                      |                     EXAMPLE_PATTERN                      |
@@ -17,5 +18,10 @@ public class Main {
         markdownProcessor.processFiles(inputPath);
 
         TextWriter.writeToFile(markdownProcessor.getVocabularyEntries(), outputFile);
+
+        if (!markdownProcessor.getErrorLines().isEmpty()) {
+            markdownProcessor.getErrorLines().forEach(System.err::println);
+            new Scanner(System.in).nextLine();
+        }
     }
 }

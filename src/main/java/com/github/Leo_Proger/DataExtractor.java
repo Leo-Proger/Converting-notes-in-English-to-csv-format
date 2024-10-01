@@ -46,6 +46,8 @@ public class DataExtractor {
                     );
                 }
             }
+        } else {
+            throw new InvalidDataException("Invalid data format");
         }
 
         return new VocabularyEntry(
