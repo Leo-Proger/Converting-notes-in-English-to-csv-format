@@ -5,7 +5,7 @@ import java.util.List;
 public record VocabularyEntry(
         String englishWord,
         String transcription,
-        String translate,
+        String translation,
         List<String> examples,
         List<String> exampleTranslates) {
 
@@ -14,7 +14,7 @@ public record VocabularyEntry(
         return "VocabularyEntry{" +
                 "englishWord='" + englishWord + '\'' +
                 ", transcription='" + transcription + '\'' +
-                ", translate='" + translate + '\'' +
+                ", translation='" + translation + '\'' +
                 ", examples=" + examples +
                 ", exampleTranslates=" + exampleTranslates +
                 '}';

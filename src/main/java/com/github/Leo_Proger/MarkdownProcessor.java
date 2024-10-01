@@ -3,16 +3,15 @@ package com.github.Leo_Proger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Stream;
 
 public class MarkdownProcessor {
 
-    private final Set<VocabularyEntry> vocabularyEntries = new LinkedHashSet<>();
+    private final List<VocabularyEntry> vocabularyEntries = new ArrayList<>();
 
-    public void processMdFiles(Path directoryPath) {
+    public void processFiles(Path directoryPath) {
         try (Stream<Path> paths = Files.walk(directoryPath)) {
             paths.filter(Files::isRegularFile)
                     .filter(path -> path.toString().endsWith(".md"))
@@ -24,7 +23,6 @@ public class MarkdownProcessor {
 
     private void processFile(Path filePath) {
         try {
-            System.out.println("Processing file: " + filePath.toAbsolutePath());
             List<String> lines = Files.readAllLines(filePath);
 
             for (String line : lines) {
@@ -39,7 +37,7 @@ public class MarkdownProcessor {
         }
     }
 
-    public Set<VocabularyEntry> getVocabularyEntries() {
+    public List<VocabularyEntry> getVocabularyEntries() {
         return vocabularyEntries;
     }
 }

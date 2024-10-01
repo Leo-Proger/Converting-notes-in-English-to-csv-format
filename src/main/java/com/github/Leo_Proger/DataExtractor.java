@@ -61,7 +61,7 @@ public class DataExtractor {
      * Delete a character from two sides of string
      *
      * @param string string to remove the character from
-     * @param ch character that is being deleted from string
+     * @param ch     character that is being deleted from string
      * @return string from which the characters on both sides have been removed
      */
     private static String stripChar(String string, char ch) {
