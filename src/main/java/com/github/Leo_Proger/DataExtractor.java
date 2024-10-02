@@ -10,6 +10,20 @@ import static com.github.Leo_Proger.Main.MAIN_PATTERN;
 
 public class DataExtractor {
 
+    /**
+     * Extracts vocabulary data from a string and creates a VocabularyEntry object.
+     *
+     * @param string A formatted string with Markdown markup containing vocabulary data in the following format:
+     *               english word or phrase (transcription in Russian) - translation in Russian. _Example 1._ Example translation in Russian 1. _Example 2!_ Example translation in Russian 2! etc.
+     * @return VocabularyEntry object containing parsed data:
+     * - English word/phrase
+     * - Transcription in Russian (if provided)
+     * - Translation in Russian
+     * - List of examples (if provided)
+     * - List of example translations in Russian (if provided)
+     * @throws InvalidDataException if the input string doesn't match the expected format
+     * @see VocabularyEntry
+     */
     public static VocabularyEntry extractData(String string) {
         String englishWord;
         String transcription;
@@ -61,11 +75,11 @@ public class DataExtractor {
     }
 
     /**
-     * Delete a character from two sides of string
+     * Removes a specified character from both the beginning and end of a string.
      *
-     * @param string string to remove the character from
-     * @param ch     character that is being deleted from string
-     * @return string from which the characters on both sides have been removed
+     * @param string string to remove the character from; if null or empty, returns unchanged
+     * @param ch     character to be removed from both sides of the string
+     * @return string with the specified character removed from both sides
      */
     private static String stripChar(String string, char ch) {
         if (string == null || string.isEmpty()) {
