@@ -22,14 +22,15 @@ public class DataExtractor {
 
         if (matcher.find()) {
             // Group 1 - english word / phrase
-            englishWord = matcher.group(1).strip();
+            englishWord = matcher.group(1).strip().replace("*", "");
 
             // Group 2 - transcription (if exist)
             String transcriptionMatch = matcher.group(2);
-            transcription = transcriptionMatch != null ? stripChar(stripChar(transcriptionMatch.strip(), '('), ')') : "";
+            transcription = transcriptionMatch == null ? "" :
+                    stripChar(stripChar(transcriptionMatch.strip().replace("*", ""), '('), ')');
 
             // Group 3 - translation
-            translate = matcher.group(3).strip();
+            translate = matcher.group(3).strip().replace("*", "");
 
             // Group 6 and 7 - examples and their translations
             String examplesGroup = matcher.group(4);
