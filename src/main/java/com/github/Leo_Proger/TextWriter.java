@@ -11,6 +11,13 @@ import java.util.List;
 
 public class TextWriter {
 
+    /**
+     * Writes vocabulary entries to a file in CSV format
+     *
+     * @param entries    List of vocabulary entries to write
+     * @param outputFile Path to the output file
+     * @throws RuntimeException if an IO error occurs
+     */
     public static void writeToFile(List<VocabularyEntry> entries, Path outputFile) {
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(outputFile.toFile()),
@@ -25,6 +32,12 @@ public class TextWriter {
         }
     }
 
+    /**
+     * Converts a vocabulary entry to a CSV line format
+     *
+     * @param entry The vocabulary entry to convert
+     * @return A string representation of the entry in CSV format
+     */
     public static String convertEntryToLine(VocabularyEntry entry) {
         List<String> line = new ArrayList<>();
 
