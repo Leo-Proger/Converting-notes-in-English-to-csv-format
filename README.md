@@ -11,17 +11,26 @@ translations) from a markdown file and converts them to CSV format (semicolon-se
 The output is saved as a `.txt` file (can be changed to `.csv` in `Main.java`), which you can import into your English
 learning application.
 
-## How to use
-
-1. Clone the repository
-2. In `Main.java`, specify:
-    - Path to the folder with your markdown files
-    - Path for the output file
-3. Run `Main.java` with Java 21
-
 ## Requirements
 
 - Java 21
+
+## How to use
+
+1. Download sources and unzip
+2. Navigate to dir:
+    ```bash
+    cd English-notes-converter-master
+    ```
+3. Compile `.java` files:
+    ```bash
+    javac -d target src\main\java\com\github\Leo_Proger\*.java
+    ``` 
+4. Run the program:
+    ```bash
+    java -cp target com.github.Leo_Proger.Main <your_dir>
+    ```
+   Example: `java -cp target com.github.Leo_Proger.Main C:\English_Lessons`
 
 ## Input format
 
