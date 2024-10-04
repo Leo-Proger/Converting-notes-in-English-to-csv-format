@@ -12,6 +12,12 @@ public class MarkdownProcessor {
     private final List<VocabularyEntry> vocabularyEntries = new ArrayList<>();
     private final List<String> errorLines = new ArrayList<>();
 
+    /**
+     * Recursively processes all .md files in the specified directory
+     *
+     * @param directoryPath Path to the directory containing markdown files
+     * @throws RuntimeException if an IO error occurs
+     */
     public void processFiles(Path directoryPath) {
         try (Stream<Path> paths = Files.walk(directoryPath)) {
             paths.filter(Files::isRegularFile)
@@ -22,6 +28,12 @@ public class MarkdownProcessor {
         }
     }
 
+    /**
+     * Processes a single markdown file to extract vocabulary entries
+     *
+     * @param filePath Path to the markdown file
+     * @throws RuntimeException if an IO error occurs
+     */
     private void processFile(Path filePath) {
         try {
             List<String> lines = Files.readAllLines(filePath);
@@ -42,10 +54,16 @@ public class MarkdownProcessor {
         }
     }
 
+    /**
+     * @return List of successfully processed vocabulary entries
+     */
     public List<VocabularyEntry> getVocabularyEntries() {
         return vocabularyEntries;
     }
 
+    /**
+     * @return List of lines that failed to process
+     */
     public List<String> getErrorLines() {
         return errorLines;
     }
