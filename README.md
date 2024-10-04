@@ -3,45 +3,79 @@
 ## Description
 
 If you write notes of your English lessons and want to remember words better, but you are too lazy to create flash
-cards? Then this program will help you with it.
+cards, then this program will help you with it.
 
-This program extracts words and other information related to it (transcription, translation, examples and their
-translations) from a markdown file and converts them to CSV format. At the end of the execution, a `.txt` file is
-created (can be changed to `.csv` in `Main.java`), where all the found words are converted to CSV format.
+This program extracts words and related information (transcription, translation, examples and their
+translations) from a markdown file and converts them to CSV format (semicolon-separated).
+
+The output is saved as a `.txt` file (can be changed to `.csv` in `Main.java`), which you can import into your English
+learning application.
 
 ## How to use
 
-1. Clone the repository `https://github.com/Leo-Proger/English-notes-converter.git`
-
-You need to specify your path to the folder in `Main.java` file where the markdown files will be located. You also need
-to specify the path to the output file, this can also be done in `Main.java`.
+1. Clone the repository
+2. In `Main.java`, specify:
+    - Path to the folder with your markdown files
+    - Path for the output file
+3. Run `Main.java` with Java 21
 
 ## Requirements
 
-A line in the `.md` file should have the following format (headers are skipped):
+- Java 21
+
+## Input format
+
+Lines in the `.md` file should have the following format (excluding headings):
 
 `- word (transcription) - translate. _Example 1._ Example translate 1. _Example 2?_ Example translate 2? _Example 3!_ Example translate 3!`
 
-Each example in English is highlighted with underscores on both sides, which corresponds to italics in markdown.
-`(transcription)` and examples are optional, but each example must have a translation.
+Notes:
 
-The program converts the string into one of the following formats:
+- `(transcription)` and examples are optional
+- Each example in English must:
+    - Be highlighted with underscores (markdown italics)
+    - Have a translation
+- Punctuation in examples and translations should match
 
-- "word1";"translation1"
+## Example
 
-- "word2";"transcription2";"translation2"
+Input `.md` file:
 
-- "word3";"translation3";"example1";"ex.translation1"
+```markdown
+# Lesson 1
 
-- "word4";"transcription4";"translation4";"example1";"ex.translation1";"example2";"ex.translation2" ...
+- lots of something - много чего-то
+- to be in trouble (ин трАбл) - быть в беде. _Were you in trouble?_ Ты был в беде?
+```
 
-These formats are taken from the app "ReWord: Learn English Language"
+Output `.txt` file in CSV format (semicolon-separated):
 
-Examples of valid strings and their CSV representation:
+```markdown
+"lots of something";"много чего-то"
+"to be in trouble";"ин трАбл";"быть в беде";"Were you in trouble?";"Ты был в беде?"
+```
 
-`- lots of something - много чего-то (можно еще что-нибудь написать)` ->
-`"lots of something";"много чего-то (можно еще что-нибудь написать)"`
+## Output formats
 
-`- to be in trouble (ин трАбл) - быть в беде. _Were you in trouble?_ Ты был в беде?` ->
-`"to be in trouble";"ин трАбл";"быть в беде";"Were you in trouble?";"Ты был в беде?"`
+The program uses one of these formats:
+
+1. "word";"translation"
+2. "word";"transcription";"translation"
+3. "word";"translation";"example";"example_translation"
+4. "word";"transcription";"translation";"example";"example_translation";"example2";"example2_translation"...
+
+These formats are compatible with the "ReWord: Learn English Language" app.
+
+## Known limitations
+
+- Only processes specifically formatted markdown files
+- Output format is tailored for ReWord app
+- No GUI, command-line only
+
+## Note
+
+This is a personal tool that I've decided to share. It contains some specific functionality I need. Feel free to fork
+and modify for your needs.
+
+
 
