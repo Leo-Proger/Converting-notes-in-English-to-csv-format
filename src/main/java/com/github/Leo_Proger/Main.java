@@ -11,13 +11,14 @@ public class Main {
     public final static String EXAMPLE_PATTERN = " _([a-zA-Z\\-()/\\d' ]+[?!.])_ ([а-яА-Я()\\-/\\d ]+[?!.]?)";
 
     public static Path inputPath = Path.of("X:\\English");
-    public static Path outputFile = Path.of("X:\\English\\" + LocalDate.now().format(DateTimeFormatter.ofPattern("MM-dd-yyyy")) + ".txt");
+    // You can change file extension to .csv
+    public static Path outputFilepath = Path.of("X:\\English\\" + LocalDate.now().format(DateTimeFormatter.ofPattern("MM-dd-yyyy")) + ".txt");
 
     public static void main(String[] args) {
         MarkdownProcessor markdownProcessor = new MarkdownProcessor();
         markdownProcessor.processFiles(inputPath);
 
-        TextWriter.writeToFile(markdownProcessor.getVocabularyEntries(), outputFile);
+        TextWriter.writeToFile(markdownProcessor.getVocabularyEntries(), outputFilepath);
 
         if (!markdownProcessor.getErrorLines().isEmpty()) {
             markdownProcessor.getErrorLines().forEach(System.err::println);
