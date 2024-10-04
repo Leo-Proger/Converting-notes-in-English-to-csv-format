@@ -36,8 +36,9 @@ public class Main {
 
         if (!markdownProcessor.getErrorLines().isEmpty()) {
             markdownProcessor.getErrorLines().forEach(System.err::println);
-            new Scanner(System.in).nextLine();
-            System.exit(0);
+        } else {
+            System.out.println("The program was completed successfully.");
         }
+        new Scanner(System.in).nextLine();
     }
 }
