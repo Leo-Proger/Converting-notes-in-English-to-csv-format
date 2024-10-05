@@ -8,7 +8,7 @@ cards, then this program will help you with it.
 This program extracts words and related information (transcription, translation, examples and their
 translations) from a markdown file and converts them to CSV format (semicolon-separated).
 
-The output is saved as a `.txt` file (can be changed to `.csv` in `Main.java`), which you can import into your English
+The output is saved as a `.csv` file (can be changed to `.txt` in `Main.java`), which you can import into your English
 learning application.
 
 ## Requirements
@@ -57,7 +57,7 @@ Input `.md` file:
 - to be in trouble (ин трАбл) - быть в беде. _Were you in trouble?_ Ты был в беде?
 ```
 
-Output `.txt` file in CSV format (semicolon-separated):
+Output `.csv` file (semicolon-separated):
 
 ```markdown
 "lots of something";"много чего-то"
