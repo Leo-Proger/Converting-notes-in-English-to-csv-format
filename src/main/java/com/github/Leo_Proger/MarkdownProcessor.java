@@ -40,7 +40,6 @@ public class MarkdownProcessor {
 
             for (String line : lines) {
                 if (line.replace("-", "").strip().isBlank()) continue;
-                if (line.strip().startsWith("# Important rules")) break;
                 if (line.strip().startsWith("#")) continue;
 
                 try {
