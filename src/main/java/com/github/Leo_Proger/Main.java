@@ -7,9 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
-    //                                                                                                                      |                     EXAMPLE_PATTERN                      |
-    public final static String MAIN_PATTERN = "^- ([a-zA-Z/() ]+)(\\([а-яА-Я/() ]+\\))? - ([а-яА-Яa-zA-Z/\\d()\\-*,. ]+)(\\.( _([a-zA-Z\\-()/\\d' ]+[?!.])_ ([а-яА-Я()\\-/\\d ]+[?!.]?))+)?$";
-    public final static String EXAMPLE_PATTERN = " _([a-zA-Z\\-()/\\d' ]+[?!.])_ ([а-яА-Я()\\-/\\d ]+[?!.]?)";
+    public final static String MAIN_PATTERN = "^- ([a-zA-Z/() ]+)(\\([а-яА-Я/() ]+\\))? - ([а-яА-Яa-zA-Z/\\d()\\-*,. ]+)(\\.( _([a-zA-Z\\-()/\\d'\\.!? ]+[?!.])_ ([а-яА-Я()\\-/\\d\\.!? ]+[?!.]?))+)?$";
+    public final static String EXAMPLE_PATTERN = " _([a-zA-Z\\-()/\\d'\\.!? ]+[?!.])_ ([а-яА-Я()\\-/\\d\\.!? ]+[?!.]?)";
 
     // You can change file extension to .csv or .txt
     public static FileType fileType = FileType.CSV;
@@ -35,10 +34,10 @@ public class Main {
         TextWriter.writeToFile(markdownProcessor.getVocabularyEntries(), outputFile);
 
         if (!markdownProcessor.getErrorLines().isEmpty()) {
+            System.err.println("Failed to process the lines:\n");
             markdownProcessor.getErrorLines().forEach(System.err::println);
-        } else {
-            System.out.println("The program was completed successfully.");
         }
+        System.out.println("\nThe program was completed.");
         new Scanner(System.in).nextLine();
     }
 }
