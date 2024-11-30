@@ -7,8 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
-    public final static String MAIN_PATTERN = "^- ([a-zA-Z/() ]+)(\\([а-яА-Я/() ]+\\))? - ([а-яА-Яa-zA-Z/\\d()\\-*,. ]+)(\\.( _([a-zA-Z\\-()/\\d'\\.!? ]+[?!.])_ ([а-яА-Я()\\-/\\d\\.!? ]+[?!.]?))+)?$";
-    public final static String EXAMPLE_PATTERN = " _([a-zA-Z\\-()/\\d'\\.!? ]+[?!.])_ ([а-яА-Я()\\-/\\d\\.!? ]+[?!.]?)";
+    public final static String MAIN_PATTERN = "^- ([a-zA-Z/() ]+)(\\([а-яА-ЯёЁ/() ]+\\))? - ([а-яА-ЯёЁa-zA-Z/\\d()\\-*,. ]+)(\\.( _([a-zA-Z\\-()/\\d'\\.,!? ]+[?!.])_ ([а-яА-ЯёЁ()\\-/\\d\\.,!? ]+[?!.]?))+)?$";
+    public final static String EXAMPLE_PATTERN = " _([a-zA-Z\\-()/\\d'\\.,!? ]+[?!.])_ ([а-яА-ЯёЁ()\\-/\\d\\.,!? ]+[?!.]?)";
 
     // You can change file extension to .csv or .txt
     public static FileType fileType = FileType.CSV;
