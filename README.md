@@ -86,5 +86,6 @@ These formats are compatible with the "ReWord: Learn English Language" app.
 This is a personal tool that I've decided to share. It contains some specific functionality I need. Feel free to fork
 and modify for your needs.
 
+## Contacts
 
-
+- Telegram - [Leo_Proger](https://t.me/leo_proger)
